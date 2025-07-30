@@ -39,7 +39,7 @@
       flex: 1;
       padding: 1rem;
       overflow-y: auto;
-      background-color: white;
+      background-color: black;
     }
 
     .message {
@@ -49,13 +49,13 @@
 
     .user {
       text-align: right;
-      color: black;
+      color: gold;
       font-weight: 600;
     }
 
     .bot {
       text-align: left;
-      color: gray;
+      color: skyblue;
     }
 
     #input-container {
@@ -127,7 +127,15 @@
       });
 
       const data = await response.json();
-      chatbox.innerHTML += `<div class="message bot">Bot: ${data.response}</div>`;
+      const markdownToHTML = (text) => {
+            return text
+            .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")        // bold
+            .replace(/\*(.*?)\*/g, "<em>$1</em>")                    // italic
+            .replace(/\n/g, "<br>");                                 // newlines
+     };
+
+    chatbox.innerHTML += `<div class="message bot">Bot: ${markdownToHTML(data.response)}</div>`;
+
       input.value = "";
       chatbox.scrollTop = chatbox.scrollHeight;
     }
