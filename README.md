@@ -1,4 +1,4 @@
-# MicroBot# 🤖 MicroBot
+# 🤖 MicroBot
 
 MicroBot is a lightweight, Gemini-powered chatbot application built using Python and Flask. It enables seamless interaction with Google's Gemini 2.5 Pro large language model through both a modern web interface and a command-line interface.
 
